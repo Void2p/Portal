@@ -1,0 +1,1109 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nosso Portal</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Playfair+Display&display=swap" rel="stylesheet">
+
+<style>
+
+@keyframes pulsarLua {
+  0% { opacity: 0.7; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.05); }
+  100% { opacity: 0.7; transform: scale(1); }
+}
+
+
+html { scroll-behavior: smooth; }
+body {
+   
+    background: radial-gradient(circle at center, #000000 0%, #440b0b63 40%, #420a0a5d 80%);
+    min-height: 100vh;
+
+    background-attachment: fixed;
+background-size: cover;
+background-position: center;
+margin: 0;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(circle at center, rgba(120, 0, 40, 0.15), transparent 70%);
+    pointer-events: none;
+}
+
+/* ========================= */
+/* PRIMEIRA PÁGINA - VINHO  */
+/* ========================= */
+
+.section1 {
+    min-height: 100vh;
+    padding: 60px;
+    background: radial-gradient(circle at center, #1a0d12 0%, #0b0608 80%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.section1::before {
+    content: "";
+    position: absolute;
+    top: 60px;
+    right: 120px;
+    width: 180px;
+    height: 180px;
+    background: radial-gradient(circle, rgb(255, 0, 0) 0%, #f7515152 40%, rgba(235, 97, 97, 0.021) 70%, transparent 80%);
+    border-radius: 50%;
+    opacity: 0.8;
+    animation: pulsarLua 4s infinite ease-in-out;
+}
+ 
+.section1::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at center, transparent 40%, rgba(0,0,0,0.6) 100%);
+    pointer-events: none;
+}
+
+.star {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: #a11228;
+    border-radius: 50%;
+    box-shadow: 0 0 8px #a11228;
+    animation: blink 2s infinite alternate;
+}
+
+@keyframes blink {
+    from { opacity: 0.2; transform: scale(1); }
+    to { opacity: 1; transform: scale(1.5); }
+}
+
+.nome-dinamico {
+    font-family: 'Cinzel', serif;
+    font-size: 2.5em;
+    color: #a11228;
+    text-shadow: 0 0 20px rgba(161,18,40,0.8);
+    margin-bottom: 20px;
+    transition: all 0.4s ease;
+    cursor: pointer;
+}
+
+.nome-dinamico:hover { letter-spacing: 3px; }
+
+.frame {
+    position: absolute;
+    width: 220px;
+    height: 280px;
+    padding: 15px;
+    background: linear-gradient(145deg, #3b0f16, #1a070c);
+    border: 8px solid #7a1e2d;
+    box-shadow: 0 0 20px rgba(122,30,45,0.8),
+                inset 0 0 20px rgba(0,0,0,0.8);
+    border-radius: 25px;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+.frame.left { top: 120px; left: 80px; transform: rotate(-8deg); }
+.frame.right { top: 140px; right: 80px; transform: rotate(8deg); }
+
+.frame:hover {
+    transform: scale(1.08) rotate(0deg);
+    box-shadow: 0 0 40px rgba(161,18,40,1),
+                inset 0 0 30px rgba(0,0,0,0.9);
+}
+
+.container {
+    width: 60%;
+    padding: 40px;
+    border: 3px solid #7a1e2d;
+    border-radius: 20px;
+    box-shadow: 0 0 30px rgba(122, 30, 45, 0.6);
+    background-color: rgba(20, 10, 15, 0.6);
+    backdrop-filter: blur(8px);
+    text-align: center;
+    z-index: 2;
+    transition: transform 0.4s ease;
+}
+
+.container:hover {
+    transform: scale(1.02);
+}
+
+.arrow {
+    display: inline-block;
+    margin-top: 50px;
+    font-size: 3em;
+    text-decoration: none;
+    animation: float 2s infinite;
+    color: #a11228;
+}
+
+
+/* ========================= */
+/* SEGUNDA PÁGINA - AZUL    */
+/* ========================= */
+
+.section2 {
+    min-height: 100vh;
+    padding: 60px;
+    background: radial-gradient(circle at center, #0d1a2a 0%, #050a14 80%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.section2::before {
+    content: "";
+    position: absolute;
+    top: 80px;
+    left: 150px;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, #9ccfff 0%, #5fa8ff 40%, rgba(100,150,255,0.1) 70%, transparent 80%);
+    border-radius: 50%;
+    opacity: 0.7;
+}
+.section2::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, transparent 60%, rgba(0,0,30,0.6));
+    pointer-events: none;
+}
+section {
+    transition: all 1s ease;
+}
+
+.section-hidden {
+    opacity: 0;
+    transform: translateY(40px);
+}
+
+.section-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+section:hover {
+    filter: brightness(1.05);
+}
+
+
+
+.star2 {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background: #1900ff;
+    border-radius: 50%;
+    box-shadow: 0 0 8px #00ffff;
+    animation: blink 2s infinite alternate;
+}
+
+.frame2 {
+    position: absolute;
+    width: 260px;
+    height: 340px;
+    padding: 20px;
+    background: linear-gradient(145deg, #0a1c30, #06101d);
+    border: 10px solid #2f5f9e;
+    border-radius: 30px;
+    box-shadow:
+        0 0 30px rgba(111,163,255,0.6),
+        inset 0 0 25px rgba(0,0,0,0.9);
+    cursor: pointer;
+    animation: flutuar 4s ease-in-out infinite;
+    transition: transform 0.4s ease;
+}
+
+.frame2::before {
+    content: "";
+    position: absolute;
+    inset: -6px;
+    border-radius: 35px;
+    border: 2px solid rgba(150,200,255,0.3);
+    pointer-events: none;
+}
+
+.frame2 img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+.frame2.left2 {
+    bottom: 100px;
+    left: 100px;
+    transform: rotate(-6deg);
+}
+
+.frame2.right2 {
+    top: 120px;
+    right: 120px;
+    transform: rotate(6deg);
+}
+
+.frame2:hover { transform: scale(1.08) rotate(0deg); }
+
+@keyframes flutuar {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(0px); }
+}
+
+.container2 {
+    width: 80%;
+    padding: 40px;
+    border: 3px solid #1e3a5f;
+    border-radius: 20px;
+    box-shadow: 0 0 30px rgba(30, 58, 95, 0.6);
+    background-color: rgba(10, 20, 35, 0.85);
+    text-align: center;
+    z-index: 2;
+
+    backdrop-filter: blur(6px);
+transition: all 0.4s ease;
+}
+
+.container2:hover {
+    transform: translateY(-5px);
+}
+
+/* ========================= */
+/* TERCEIRA PÁGINA - ROSA CLARO  */
+/* ========================= */
+
+.section-rosa {
+    min-height: 100vh;
+    padding: 60px;
+    background: radial-gradient(circle at center, #ffc0cb 0%, #ffb6c1 80%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    color: #333;
+}
+
+.section-rosa::before {
+    content: "";
+    position: absolute;
+    top: 50px;
+    right: 50px;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, #ff8da1 0%, #ffa6b0 40%, rgba(255,150,170,0.1) 70%, transparent 80%);
+    border-radius: 50%;
+    opacity: 0.7;
+}
+
+.star-rosa {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background: #ff69b4;
+    border-radius: 50%;
+    box-shadow: 0 0 8px #ff69b4;
+    animation: blink 2s infinite alternate;
+}
+
+.container-rosa {
+    width: 80%;
+    padding: 40px;
+    border: 3px solid #ff69b4;
+    border-radius: 20px;
+    box-shadow: 0 0 30px rgba(255,105,180,0.4);
+    background-color: rgba(255, 192, 203, 0.7);
+    text-align: center;
+    z-index: 2;
+}
+
+.container-rosa h1 {
+    color: #ff1493;
+    text-shadow: 0 0 15px rgba(255,20,147,0.5);
+}
+
+.arrow-rosa {
+    display: inline-block;
+    margin-top: 50px;
+    font-size: 3em;
+    text-decoration: none;
+    animation: float 2s infinite;
+    color: #ff1493;
+}
+
+.segredo {
+    position: absolute;
+    bottom: 50px;
+    left: 1000px;
+    width: 7px;
+    height: 7px;   
+    background: rgba(255, 77, 196, 0.226);
+    opacity: 0,1;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.star-rosa {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background: #ff69b4; /* rosa forte */
+    border-radius: 50%;
+    box-shadow: 0 0 8px #ff6969;
+    animation: blink 2s infinite alternate;
+}
+
+.section-rosa {
+    min-height: 100vh;
+    padding: 60px;
+    background: radial-gradient(circle at center, #ffc0cb 0%, #ffb6c1 80%);
+    
+    /* Aqui adicionamos a imagem do coração */
+    background-image: url('img/coração.jpg');
+    background-size: cover;       /* Faz a imagem cobrir 100% da tela */
+    background-position: center;  /* Centraliza a imagem */
+    background-repeat: no-repeat; /* Não repete a imagem */
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    color: #333;
+}
+
+
+.pagina-rosa {
+    position: relative; /* IMPORTANTE para as fotos ficarem presas nela */
+}
+
+.foto-rosa {
+    position: absolute;
+    width: 120px; /* menor que as principais */
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(255,105,180,0.6);
+    transition: transform 0.3s ease;
+}
+
+.foto-rosa:hover {
+    transform: scale(1.1);
+}
+
+.foto1 {
+    top: 2%;
+    left: 5%;
+}
+
+.foto2 {
+    top: 60%;
+    right: 8%;
+}
+
+.foto3 {
+    bottom: 15%;
+    left: 20%;
+}
+
+.foto4 {
+    top: 10%;
+    right: 25%;
+}
+
+
+/* ========================= */
+/* QUARTA PÁGINA - CINZA  */
+/* ========================= */
+
+.section3 {
+    min-height: 100vh;
+    padding: 60px;
+    background: radial-gradient(circle at center, #2b2b2b 0%, #0f0f0f 90%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    color: #999999;
+}
+
+.section3::before {
+    content: "";
+    position: absolute;
+    top: 40px;
+    right: 40px;
+    width: 220px;
+    height: 220px;
+    background: url('img/jack-face.png') no-repeat center/contain;
+    opacity: 0.7;
+}
+
+.star3 {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background: rgb(255, 255, 255);
+    border-radius: 50%;
+    box-shadow: 0 0 8px rgb(255, 255, 255);
+    animation: blink 2s infinite alternate;
+}
+
+.frame3 {
+    position: absolute;
+    width: 240px;
+    height: 320px;
+    padding: 15px;
+    background: linear-gradient(145deg, #1a1a1a, #0d0d0d);
+    border: 6px solid #999;
+    border-radius: 25px;
+    box-shadow:
+        0 0 25px rgba(255, 255, 255, 0.2),
+        inset 0 0 15px rgba(0,0,0,0.7);
+    cursor: pointer;
+    animation: flutuar3 5s ease-in-out infinite;
+    transition: transform 0.4s ease;
+}
+
+.frame3 img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+.frame3.left3 { bottom: 120px; left: 120px; transform: rotate(-7deg); }
+.frame3.right3 { top: 140px; right: 140px; transform: rotate(7deg); }
+
+.frame3:hover { transform: scale(1.08) rotate(0deg); }
+
+@keyframes flutuar3 {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-12px); }
+    100% { transform: translateY(0px); }
+}
+
+.container3 {
+    width: 80%;
+    padding: 40px;
+    border: 3px solid #777;
+    border-radius: 20px;
+    box-shadow: 0 0 30px rgba(200,200,200,0.2);
+    background-color: rgba(20, 20, 20, 0.9);
+    text-align: center;
+}
+
+#contador {
+    font-size: 2.2em;
+    margin-top: 30px;
+    letter-spacing: 3px;
+    font-family: 'Cinzel', serif;
+    text-shadow: 0 0 15px rgba(255,255,255,0.4);
+    animation: pulsar 3s infinite alternate;
+}
+
+@keyframes pulsar {
+    from { opacity: 0.6; }
+    to { opacity: 1; }
+}
+
+.overlay {
+    position: fixed;
+    display: none;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+.overlay img {
+    max-width: 80%;
+    max-height: 80%;
+    border: 5px solid #999;
+    border-radius: 20px;
+    box-shadow: 0 0 40px rgba(255,255,255,0.8);
+}
+
+
+#playBtn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: rgba(0,0,0,0.6);
+    border: 2px solid #a11228;
+    color: #a11228;
+    font-size: 20px;
+    padding: 10px 15px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+#playBtn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: rgba(0, 0, 0, 0.6);
+    border: 2px solid #a11228;
+    color: #a11228;
+    font-size: 20px;
+    padding: 10px 15px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+
+.transition-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(60, 111, 250, 0.527);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.8s ease;
+    z-index: 9998;
+}
+
+
+/* Mobile Responsivo */
+@media (max-width: 768px) {
+    .frame, .frame2, .frame3 {
+        width: 160px;    /* menor que desktop */
+        height: 220px;
+        padding: 10px;
+    }
+
+    .frame.left, .frame2.left2, .frame3.left3,
+    .frame.right, .frame2.right2, .frame3.right3 {
+        transform: rotate(0deg);  /* remove inclinação para caber melhor */
+        top: auto;
+        bottom: auto;
+        left: auto;
+        right: auto;
+        margin: 10px;
+        position: relative;        /* evita sair da tela */
+    }
+
+    .container, .container2, .container3, .container-rosa {
+        width: 90%;        /* ocupa quase toda a largura */
+        padding: 20px;
+        font-size: 0.9em;  /* texto menor para caber */
+    }
+
+    .arrow, .arrow-rosa {
+        font-size: 2em;    /* setas menores */
+    }
+
+    .section1, .section2, .section3, .section-rosa {
+        padding: 40px 20px; /* menos padding */
+    }
+
+    /* Reduz tamanho das estrelas para caber melhor */
+    .star, .star2, .star3, .star-rosa {
+        width: 2px;
+        height: 2px;
+    }
+}
+
+/* ===== CORES DE TEXTO POR PÁGINA ===== */
+
+.pagina-vinho {
+    color: #ffb3c6;
+    text-shadow: 0 0 10px rgba(255, 0, 80, 0.6);
+}
+
+.pagina-azul {
+    color: #a8d8ff;
+    text-shadow: 0 0 10px rgba(0, 150, 255, 0.6);
+}
+
+.pagina-rosa {
+    color: #ff69b4;
+    text-shadow: 0 0 12px rgba(255, 105, 180, 0.7);
+}
+
+.pagina-cinza {
+    color: #e0e0e0;
+    text-shadow: 0 0 8px rgba(200, 200, 200, 0.5);
+}
+
+
+/* ===== CORES DE TEXTO CORRETAS POR SEÇÃO ===== */
+
+/* VINHO */
+.section1 h1,
+.section1 h2,
+.section1 p,
+.section1 span {
+    color: #ff0040;
+}
+
+/* AZUL */
+.section2 h1,
+.section2 h2,
+.section2 p,
+.section2 span {
+    color: #2071b3;
+}
+
+/* ROSA */
+.section-rosa h1,
+.section-rosa h2,
+.section-rosa p,
+.section-rosa span {
+    color: #f583c0;
+}
+
+/* CINZA */
+.section3 h1,
+.section3 h2,
+.section3 p,
+.section3 span {
+    color: #e0e0e0;
+}
+
+.overlay-content {
+    text-align: center;
+    color: white;
+    font-family: 'Playfair Display', serif;
+}
+
+#textoOverlay {
+    margin-top: 20px;
+    font-size: 1.3em;
+    max-width: 600px;
+    text-shadow: 0 0 10px rgba(255,255,255,0.5);
+}
+
+
+
+
+@media (max-width: 768px) {
+
+    /* Remove posicionamento absoluto dos frames */
+    .frame, .frame2, .frame3 {
+        position: relative;
+        width: 150px;
+        height: 200px;
+        margin: 15px auto;
+        transform: none !important;
+    }
+
+    /* Containers ocupam quase toda largura */
+    .container,
+    .container2,
+    .container3,
+    .container-rosa {
+        width: 95%;
+        padding: 20px;
+        font-size: 0.9em;
+    }
+
+    /* Fotos pequenas viram grid organizado */
+    .foto-rosa {
+        position: relative;
+        width: 80px;
+        margin: 10px;
+    }
+
+    .section-rosa {
+        flex-direction: column;
+    }
+
+    /* Organiza fotos pequenas em linha */
+    .section-rosa {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.foto-rosa {
+    position: relative;
+}
+
+    /* Ajusta setas */
+    .arrow,
+    .arrow-rosa {
+        font-size: 2em;
+    }
+
+    /* Reduz títulos */
+    h1 {
+        font-size: 1.8em;
+    }
+
+    h2 {
+        font-size: 1.4em;
+    }
+
+    /* Remove efeitos que podem pesar */
+    .section1::before,
+    .section2::before,
+    .section3::before {
+        opacity: 0.4;
+    }
+
+}
+</style>
+</head>
+
+<body>
+
+    <audio id="musica" loop>
+  <source src="Music/Congratulations.mp3" type="audio/mpeg">
+</audio>
+
+<button id="playBtn">♬</button>
+
+<section class="section1">
+<script>
+
+function transicao(event, destino){
+    event.preventDefault();
+
+    const overlay = document.getElementById("transitionOverlay");
+    overlay.style.opacity = "0.6";
+
+    setTimeout(()=>{
+        document.getElementById(destino).scrollIntoView({
+            behavior: "smooth"
+        });
+
+        overlay.style.opacity = "0";
+    }, 600);
+}
+
+
+
+
+
+for(let i=0;i<60;i++){
+    let star=document.createElement("div");
+    star.className="star";
+    star.style.top=Math.random()*100+"%";
+    star.style.left=Math.random()*100+"%";
+    star.style.animationDuration=(Math.random()*3+1)+"s";
+    document.querySelector(".section1").appendChild(star);
+}
+</script>
+
+<div class="frame left" onclick="abrirImagem(this)">
+    <img src="img/img1.png">
+</div>
+
+<div class="frame right" onclick="abrirImagem(this)">
+    <img src="img/img2.png">
+</div>
+
+<div class="container">
+    <div class="nome-dinamico" id="nome">CODEINA</div>
+    <h1>♱⛥Para minha princesinha mais linda de todas♱⛥</h1>
+    <p>❥Fiz esse site juntamente desses presentinhos para eu poder expressar o quanto eu te amo minha linda.
+        Ao longo ❥desses meses pudemos viver muitos bons momentos, e meu dEUS, viajar com você foi de forma literal a melhor ❥experiência que eu já vivi na minha vida, de verdade mesmo.
+        E não apenas por conta do lugar de onde estavamos, ❥mas principalmente ser com você. Na praia foi tudo muito incrivel, passar esse tempo com você e a sua familia é ❥algo que eu realmente apreciei muito.
+        Fiz desses dias boas memórias para mim, e vou eternizar muitas outras que ❥viveremos juntos ♱</p>
+
+        
+    <a href="#azul" class="arrow" onclick="transicao(event, 'azul')">↓</a>
+</div>
+
+<div class="segredo" onclick="mostrarSegredo()"></div>
+
+</section>
+
+<section class="section2" id="azul">
+
+<script>
+for(let i=0;i<50;i++){
+    let star=document.createElement("div");
+    star.className="star2";
+    star.style.top=Math.random()*100+"%";
+    star.style.left=Math.random()*100+"%";
+    star.style.animationDuration=(Math.random()*3+1)+"s";
+    document.querySelector(".section2").appendChild(star);
+}
+</script>
+
+<div class="frame2 left2" onclick="abrirImagem(this)">
+    <img src="img/img4.jpeg">
+</div>
+<div class="frame2 right2" onclick="abrirImagem(this)">
+    <img src="img/img3.jpeg">
+</div>
+
+<div class="container2">
+    <h1 style="color:#6fa3ff;">♱</h1>
+    <p>Fazer presentinhos para você me deixa muito bem.. Eu sinto que to mostrando o quanto você é especial para mim. Mas sei que mesmo com todos os presentinhos do mundo, nunca seria capaz de expressar 20% do quanto eu te amo. Escolhi a cor azul para essa página porque ela simboliza paz e é a minha favorita, e fazer presentinhos pra você me traz paz, e também se tornou uma das minhas coisas favoritas que eu mais gosto de fazer 🥺💙</p>
+    <a href="#rosa" class="arrow" style="color: #6fa3ff;" onclick="transicao(event, 'rosa')">↓</a>
+</div>
+</section>
+
+
+
+
+<section class="section-rosa" id="rosa">
+<script> 
+
+
+
+
+
+
+
+function transicao(event, destino){
+    event.preventDefault();
+
+    const overlay = document.getElementById("transitionOverlay");
+    overlay.style.opacity = "0.6";
+
+    setTimeout(()=>{
+        document.getElementById(destino).scrollIntoView({
+            behavior: "smooth"
+        });
+
+        overlay.style.opacity = "0";
+    }, 600);
+}
+
+
+    for(let i=0;i<50;i++){
+        let star = document.createElement("div");
+        star.className = "star-rosa";
+        star.style.top = Math.random() * 100 + "%";
+        star.style.left = Math.random() * 100 + "%";
+        star.style.animationDuration = (Math.random() * 3 + 1) + "s";
+        document.querySelector(".section-rosa").appendChild(star);
+    }
+
+
+
+
+
+
+for(let i=0;i<60;i++){
+    let star=document.createElement("div");
+    star.className="star";
+    star.style.top=Math.random()*100+"%";
+    star.style.left=Math.random()*100+"%";
+    star.style.animationDuration=(Math.random()*3+1)+"s";
+    document.querySelector(".section1").appendChild(star);
+}
+</script>
+
+<div class="frame left" onclick="abrirImagem(this)">
+    <img src="img/img7.jpeg">
+</div>
+
+<div class="frame right" onclick="abrirImagem(this)">
+    <img src="img/img8.jpeg">
+</div>
+
+<div class="container">
+    <div class="nome-dinamico" id="nome">CODEINA</div>
+    <h1>♱⛥</h1>
+    <p> Aqui um pouco das coisas que ao longo desses mais de 200 dias me fazem lembram de você:</p>
+    <a href="#cinza" class="arrow" onclick="transicao(event, 'cinza')">↓</a>
+</div>
+
+<div class="segredo" onclick="mostrarSegredo()"></div>
+
+
+<img src="img/Avenged.JPG" class="foto-rosa pequena foto1" onclick="abrirImagemComTexto(this, 'Essa banda me lembra você porque sempre que esuto A Little Piece Of Heaven já me vem a mente o som da sua voz cantando o refrão🥺💙')">
+
+<img src="img/MyMelody.png" class="foto-rosa pequena foto2" onclick="abrirImagemComTexto(this, 'My Melody me lembra sua delicadeza, tão fofinha quanto ela ♡🌸')">
+
+<img src="img/Deadpeace.JPG" class="foto-rosa pequena foto3" onclick="abrirImagemComTexto(this, 'Deadpeace: Essa estética combina com seu jeitinho único, um dia toda rosinha e no outro toda dark 🖤♡')">
+
+<img src="img/asu.png" class="foto-rosa pequena foto4" onclick="abrirImagemComTexto(this, 'And you too divine to just be mine, You remind me of the color blue 💙')">
+
+
+</section>
+
+<section class="section3" id="cinza">
+
+<script>
+for(let i=0;i<50;i++){
+    let star=document.createElement("div");
+    star.className="star3";
+    star.style.top=Math.random()*100+"%";
+    star.style.left=Math.random()*100+"%";
+    star.style.animationDuration=(Math.random()*3+1)+"s";
+    document.querySelector(".section3").appendChild(star);
+}
+</script>
+
+<div class="frame3 left3" onclick="abrirImagem(this)">
+    <img src="img/img5.jpeg">
+</div>
+
+<div class="frame3 right3" onclick="abrirImagem(this)">
+    <img src="img/img6.jpeg">
+</div>
+
+<div class="container3">
+    <h2>⛥Nosso tempo juntos♱</h2>
+    <div id="contador"></div>
+</div>
+</section>
+
+<div class="overlay" id="overlay" onclick="fecharImagem()">
+    <div class="overlay-content">
+        <img id="imgExpandida">
+        <p id="textoOverlay"></p>
+    </div>
+</div>
+
+<script>
+const nome = document.getElementById("nome");
+
+nome.addEventListener("mouseover", () => {
+    nome.textContent = "EU TE AMO MUUUITO";
+}); 
+nome.addEventListener("mouseout", () => {
+    nome.textContent = "CODEINA";
+});
+
+
+const dataInicio = new Date("2025-07-01");
+
+function atualizarContador(){
+    const agora = new Date();
+    const diff = agora - dataInicio;
+
+    const dias = Math.floor(diff / (1000*60*60*24));
+    const horas = Math.floor((diff / (1000*60*60)) % 24);
+    const minutos = Math.floor((diff / (1000*60)) % 60);
+
+    document.getElementById("contador").innerHTML =
+        dias + " Dias<br>" +
+        horas + " Horas<br>" +
+        minutos + " Minutos";
+}
+
+setInterval(atualizarContador, 1000);
+atualizarContador();
+
+function abrirImagem(elemento){
+    document.getElementById("imgExpandida").src =
+    elemento.querySelector("img").src;
+    document.getElementById("overlay").style.display="flex";
+}
+function fecharImagem(){
+    document.getElementById("overlay").style.display="none";
+}
+
+/* Fade seguro */
+window.addEventListener("DOMContentLoaded", () => {
+
+    const sections = document.querySelectorAll("section");
+
+    sections.forEach(sec => {
+        sec.classList.add("section-hidden");
+    });
+
+    const observer = new IntersectionObserver((entries)=>{
+        entries.forEach(entry=>{
+            if(entry.isIntersecting){
+                entry.target.classList.remove("section-hidden");
+                entry.target.classList.add("section-visible");
+            }
+        });
+    }, {threshold: 0.3});
+
+    sections.forEach(sec => observer.observe(sec));
+
+});
+
+
+const musica = document.getElementById("musica");
+const playBtn = document.getElementById("playBtn");
+
+playBtn.addEventListener("click",()=>{
+    if(musica.paused){
+        musica.play();
+        playBtn.style.opacity = "0.6";
+    } else {
+        musica.pause();
+        playBtn.style.opacity = "1";
+    }
+});
+
+function mostrarSegredo(){
+    alert("♱Você sempre encontra o que importa.. Eu te amo muito melissa♱");
+}
+
+const secoes = document.querySelectorAll("section");
+
+const observerMusica = new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+        if(entry.isIntersecting){
+            if(entry.target.classList.contains("section1")){
+                playBtn.style.borderColor = "#d20a2e";
+                playBtn.style.color = "#d20a2e";
+            }
+            if(entry.target.classList.contains("section2")){
+                playBtn.style.borderColor = "#6fa3ff";
+                playBtn.style.color = "#6fa3ff";
+                
+                
+            }
+            if(entry.target.classList.contains("section3")){
+                playBtn.style.borderColor = "#999";
+                playBtn.style.color = "#999";
+            }
+
+            if(entry.target.classList.contains("section-rosa")){
+    playBtn.style.borderColor = "#ff69b4"; // rosa forte
+    playBtn.style.color = "#ff69b4";
+}
+        }
+    });
+},{threshold:0.6});
+
+secoes.forEach(sec=>observerMusica.observe(sec));
+
+
+function abrirImagemComTexto(elemento, texto){
+    document.getElementById("imgExpandida").src =
+        elemento.src;
+
+    document.getElementById("textoOverlay").textContent = texto;
+
+    document.getElementById("overlay").style.display="flex";
+}
+
+
+
+
+
+</script>
+
+<div class="transition-overlay" id="transitionOverlay"></div>
+
+</body>
+</html>
