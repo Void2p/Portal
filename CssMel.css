@@ -1,0 +1,388 @@
+/* ============================================================
+    CONFIGURAÇÕES GLOBAIS E RESET
+    ============================================================ */
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+}
+
+html { 
+    scroll-behavior: smooth; 
+}
+
+body {
+    background: #000;
+    min-height: 100vh;
+    font-family: 'IM Fell English SC', serif;
+    overflow-x: hidden;
+    transition: filter 1s ease;
+}
+
+/* ============================================================
+    ESTRUTURA DAS SEÇÕES
+    ============================================================ */
+section {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding: 80px 20px;
+}
+
+.section1 { background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("img/UmGround.png") no-repeat center/cover; }
+.section2 { background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url("img/DoisGround.png") no-repeat center/cover; }
+.section-rosa { background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url("img/TresGround.png") no-repeat center/cover; }
+.section3 { background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url("img/QuatroGround.png") no-repeat center/cover; }
+
+/* ============================================================
+    BOTÃO SECRETO (EASTER EGG)
+    ============================================================ */
+#secret-trigger {
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+    font-size: 18px;
+    color: rgba(161, 18, 40, 0.2); /* Quase invisível */
+    cursor: pointer;
+    z-index: 100;
+    transition: 0.5s;
+    user-select: none;
+}
+
+#secret-trigger:hover {
+    color: rgba(161, 18, 40, 0.8);
+    text-shadow: 0 0 10px #a11228;
+    transform: scale(1.2);
+}
+
+.fade-out-secret {
+    filter: blur(15px) brightness(0);
+    pointer-events: none;
+}
+
+/* ============================================================
+    MOLDURAS NOS CANTOS
+    ============================================================ */
+.moldura-canto {
+    position: absolute;
+    width: 400px; 
+    height: auto;
+    z-index: 5;
+    pointer-events: none;
+    opacity: 0.9;
+    display: block;
+}
+
+.topo-esq { top: 0; left: 0; }
+.topo-dir { top: 0; right: 0; transform: scaleX(-1); }
+.baixo-esq { bottom: 0; left: 0; transform: scaleY(-1); }
+.baixo-dir { bottom: 0; right: 0; transform: rotate(180deg); }
+
+.section1::before {
+    content: "";
+    position: absolute;
+    top: 60px; right: 120px;
+    width: 180px; height: 180px;
+    background: radial-gradient(circle, rgb(255, 0, 0) 0%, #f7515152 40%, rgba(235, 97, 97, 0.021) 70%, transparent 80%);
+    border-radius: 50%;
+    opacity: 0.8;
+    animation: pulsarLua 4s infinite ease-in-out;
+}
+
+/* ============================================================
+    CONTAINERS DE TEXTO E DIGITAÇÃO
+    ============================================================ */
+.container, .container2, .container3 {
+    position: relative;
+    width: 90%;
+    max-width: 800px;
+    padding: 40px;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    text-align: center;
+    z-index: 10;
+    margin: 20px auto;
+}
+
+.container { border: 3px solid #7a1e2d; background: rgba(20, 10, 15, 0.7); color: #ffb3c6; }
+.container2 { border: 3px solid #1e3a5f; background: rgba(10, 20, 35, 0.8); color: #a8d8ff; }
+.container3 { border: 3px solid #777; background: rgba(20, 20, 20, 0.9); color: #e0e0e0; }
+
+.nome-dinamico { font-family: 'Cinzel', serif; font-size: 2.5em; color: #a11228; cursor: pointer; transition: 0.4s; }
+
+.digitar {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.digitar.feito {
+    opacity: 1;
+    visibility: visible;
+}
+
+.digitar.feito::after {
+    content: '_';
+    display: inline-block;
+    animation: blinkCursor 0.8s infinite;
+    color: inherit;
+    margin-left: 5px;
+}
+
+@keyframes blinkCursor { 50% { opacity: 0; } }
+
+/* ============================================================
+    FRAMES GÓTICOS E VIDRO REAL
+    ============================================================ */
+.frame, .frame2, .frame3 {
+    position: relative;
+    padding: 22px; 
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    cursor: pointer;
+    z-index: 5;
+    display: inline-block;
+    margin: 20px;
+    background: #0a0a0a; 
+    border: 6px double rgba(255, 255, 255, 0.15); 
+    box-shadow: 0 15px 45px rgba(0,0,0,0.9), inset 0 0 25px rgba(0,0,0,1);
+    overflow: hidden; 
+}
+
+.frame::after, .frame2::after, .frame3::after {
+    content: "";
+    position: absolute;
+    top: 6px; left: 6px; 
+    width: calc(100% - 12px); height: calc(100% - 12px);
+    background: linear-gradient(135deg, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 30%, rgba(255,255,255,0.08) 50%, rgba(255,255,255,0) 70%, rgba(255,255,255,0.05) 100%);
+    pointer-events: none; 
+    z-index: 6; 
+}
+
+.frame::before, .frame2::before, .frame3::before {
+    content: "";
+    position: absolute;
+    top: 22px; left: 22px; right: 22px; bottom: 22px;
+    background: linear-gradient(rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.4) 50%);
+    background-size: 100% 3px;
+    z-index: 10;
+    pointer-events: none;
+    opacity: 0.6;
+}
+
+.frame { width: 220px; height: 280px; border-color: #5a111d; } 
+.frame2 { width: 260px; height: 340px; border-color: #1a2a40; animation: flutuar 4s infinite; } 
+.frame3 { width: 240px; height: 320px; border-color: #444; } 
+
+.frame img, .frame2 img, .frame3 img, .frame video, .frame3 video {
+    width: 100%; height: 100%; object-fit: cover;
+    display: block;
+    filter: grayscale(100%) brightness(0.2) contrast(1.2); 
+    transition: filter 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 4; 
+}
+
+.frame:hover img, .frame2:hover img, .frame3:hover img, .frame:hover video, .frame3:hover video { 
+    filter: grayscale(0%) brightness(1) contrast(1.1); 
+}
+
+.frame:hover, .frame2:hover, .frame3:hover { 
+    transform: scale(1.05); 
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.1); 
+}
+
+/* ============================================================
+    OVERLAY COM EFEITO DE LUZ (GLOW)
+    ============================================================ */
+.overlay {
+    position: fixed; inset: 0; 
+    background: rgba(0,0,0,0.96);
+    display: none; justify-content: center; align-items: center; 
+    z-index: 100000;
+    backdrop-filter: blur(15px);
+    cursor: pointer;
+}
+
+.overlay-content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 85%;
+    max-height: 85vh;
+}
+
+.midia-ampliada { 
+    max-width: 100%; 
+    max-height: 80vh; 
+    border-radius: 10px;
+    animation: pulsarGlowOverlay 3s infinite ease-in-out;
+    object-fit: contain;
+}
+
+#textoOverlay {
+    color: #fff;
+    margin-top: 20px;
+    font-size: 1.2rem;
+    text-align: center;
+    text-shadow: 0 0 10px rgba(0,0,0,1);
+}
+
+@keyframes pulsarGlowOverlay {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+}
+
+/* ============================================================
+    ELEMENTOS INTERATIVOS E MÚSICA
+    ============================================================ */
+#playBtn {
+    position: fixed; bottom: 20px; right: 20px;
+    z-index: 1000001;
+    background: rgba(0,0,0,0.8);
+    border: 2px solid #a11228; color: #a11228;
+    width: 60px; height: 60px;
+    border-radius: 50%; cursor: pointer;
+    font-size: 24px; display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 0 15px rgba(161, 18, 40, 0.5);
+    transition: 0.3s;
+}
+
+#playBtn:hover { transform: scale(1.1); background: #a11228; color: #000; }
+
+.playing {
+    animation: pulseHeart 1.2s infinite ease-in-out !important;
+    background: #a11228 !important; 
+    color: #000 !important;
+}
+
+@keyframes pulseHeart {
+    0% { transform: scale(1); box-shadow: 0 0 10px #a11228; }
+    15% { transform: scale(1.15); box-shadow: 0 0 20px #ff0000; }
+    100% { transform: scale(1); }
+}
+
+/* ============================================================
+    CHUVA E NEVOEIRO
+    ============================================================ */
+.chuva {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    pointer-events: none; z-index: 2; overflow: hidden;
+}
+
+.chuva::before {
+    content: ""; 
+    position: absolute;
+    top: 0; left: 0; 
+    width: 200%; height: 100%;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="1000" viewBox="0 0 1000 1000"><filter id="a"><feTurbulence type="fractalNoise" baseFrequency=".006" numOctaves="5" stitchTiles="stitch"/><feColorMatrix values="0.33 0.33 0.33 0 0 0.33 0.33 0.33 0 0 0.33 0.33 0.33 0 0 0 0 0 0.5 0"/></filter><rect width="100%" height="100%" filter="url(%23a)"/></svg>');
+    background-repeat: repeat-x;
+    opacity: 0.3;
+    animation: moverNeblinaInfinita 80s linear infinite;
+}
+
+.section3 .chuva {
+    background-image: 
+        radial-gradient(1.5px 20px at 10% 10%, rgba(255,255,255,0.2) 100%, transparent),
+        radial-gradient(2px 30px at 50% 20%, rgba(255,255,255,0.3) 100%, transparent);
+    background-size: 200px 400px;
+    animation: chuvaCaindoDiagonal 0.7s linear infinite;
+}
+
+/* ============================================================
+    CONTADOR E RESPONSIVIDADE
+    ============================================================ */
+#contador {
+    font-size: 1.8rem;
+    margin-top: 20px;
+    color: #e0e0e0;
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+}
+
+.transition-overlay { position: fixed; inset: 0; background: #000; opacity: 0; pointer-events: none; z-index: 99999; transition: 0.6s; }
+
+@keyframes moverNeblinaInfinita {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+}
+
+@keyframes pulsarLua { 0%, 100% { opacity: 0.7; transform: scale(1); } 50% { opacity: 1; transform: scale(1.05); } }
+@keyframes chuvaCaindoDiagonal { from { background-position: 0 0; } to { background-position: 120px 400px; } }
+@keyframes flutuar { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
+
+.section-rosa .frame.horizontal { width: 420px; height: 240px; }
+
+@media (min-width: 1024px) {
+    .frame.left { position: absolute; left: 5%; top: 20%; transform: rotate(-8deg); }
+    .frame.right { position: absolute; right: 5%; top: 25%; transform: rotate(8deg); }
+    .frame2.left2 { position: absolute; left: 5%; bottom: 15%; transform: rotate(-6deg); }
+    .frame2.right2 { position: absolute; right: 5%; top: 15%; transform: rotate(6deg); }
+    .frame3.left3 { position: absolute; left: 5%; bottom: 20%; transform: rotate(-7deg); }
+    .frame3.right3 { position: absolute; right: 5%; top: 20%; transform: rotate(7deg); }
+    .section-rosa .frame.left.horizontal { left: 2%; top: 15%; transform: rotate(-5deg); }
+    .section-rosa .frame.right.horizontal { right: 2%; top: 50%; transform: rotate(5deg); }
+}
+
+@media (max-width: 768px) {
+    .frame, .frame2, .frame3, .section-rosa .frame.horizontal { 
+        width: 280px !important; height: 350px !important; position: static !important; 
+        transform: none !important; margin: 10px auto; display: block; 
+    }
+}
+
+/* MORCEGOS DO MOUSE */
+.mouse-bat {
+    position: fixed;
+    pointer-events: none;
+    z-index: 999999;
+    font-size: 22px;
+    animation: fadeBat 0.7s forwards;
+    color: #a11228;
+    text-shadow: 0 0 5px #000;
+}
+
+@keyframes fadeBat {
+    0% { transform: translate(0, 0) scale(1) rotate(0deg); opacity: 1; }
+    100% { transform: translate(0, -30px) scale(0.5) rotate(20deg); opacity: 0; }
+}
+
+/* Esconde o texto na visualização normal */
+.legenda-digitalizada {
+    display: none;
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    color: #ffb7c5; /* Rosa da seção */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+    font-family: 'Courier New', Courier, monospace;
+    z-index: 10;
+    pointer-events: none; /* Para não atrapalhar o clique de fechar */
+}
+
+/* Quando o frame estiver ampliado, o texto aparece e começa a digitar */
+.frame.expandido .legenda-digitalizada {
+    display: block;
+}
+
+/* Estilo do texto que aparece ao ampliar a imagem da direita */
+#textoOverlay.digitar-overlay {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.4rem;
+    color: #ffb7c5; /* Rosa suave */
+    max-width: 80%;
+    margin-top: 30px;
+    text-shadow: 0 0 10px rgba(255, 183, 197, 0.5), 0 0 20px #000;
+    line-height: 1.5;
+    text-align: center;
+}
+
+/* Cursor piscando para o efeito digitalizado no overlay */
+#textoOverlay.digitar-overlay::after {
+    content: '_';
+    animation: blinkCursor 0.8s infinite;
+}
