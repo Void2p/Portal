@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Santuário do Vazio</title>
+    <link href="https://fonts.googleapis.com/css2?family=IM+Fell+English+SC&family=Cinzel&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="segredo.css">
+</head>
+<body>
+
+    <div id="lanterna"></div>
+
+    <audio id="heartbeat" loop>
+        <source src="Music/batidas do coração.mp3" type="audio/mpeg">
+    </audio>
+
+    <div class="santuario-container">
+        <div class="eco" style="top: 10%; left: 10%; transform: rotate(-15deg);">"Não solte minha mão..."</div>
+        <div class="eco" style="bottom: 20%; right: 5%; transform: rotate(10deg);">"Onde o tempo morre."</div>
+        <div class="eco" style="top: 50%; left: 5%; transform: rotate(-90deg);">"Minha única luz."</div>
+        <div class="eco" style="top: 15%; right: 15%;">"Eternos."</div>
+
+        <div class="vulto-texto">
+            <p>"Nossas sombras se encontraram antes de nossos corpos."</p>
+            <p>"Este lugar é onde o tempo não nos alcança."</p>
+        </div>
+
+        <div class="altar-eterno">
+            <h1 class="titulo-eterno">PARA SEMPRE</h1>
+            <div id="mural-eterno">
+                <span class="infinito">∞</span>
+                <span class="infinito">∞</span>
+                <span class="infinito">∞</span>
+            </div>
+            <p class="frase-final">"O tempo parou no momento em que você entrou. Aqui, somos eternos."</p>
+        </div>
+    </div>
+
+   <script>
+    const lanterna = document.getElementById('lanterna');
+    const batimento = document.getElementById('heartbeat');
+    let somIniciado = false;
+
+    // Função de reprodução garantida
+    async function tentarTocarSom() {
+        if (somIniciado) return;
+        
+        try {
+            batimento.volume = 0;
+            await batimento.play();
+            somIniciado = true;
+            
+            // Fade-in
+            let vol = 0;
+            let fadeIn = setInterval(() => {
+                if (vol < 0.6) {
+                    vol += 0.05;
+                    batimento.volume = vol;
+                } else {
+                    clearInterval(fadeIn);
+                }
+            }, 150);
+            
+            console.log("Som iniciado com sucesso.");
+        } catch (err) {
+            console.log("Navegador bloqueou áudio. Esperando usuário clicar...");
+        }
+    }
+
+    // A lanterna segue o mouse e tenta iniciar o som
+    document.addEventListener('mousemove', (e) => {
+        lanterna.style.background = `radial-gradient(circle 150px at ${e.clientX}px ${e.clientY}px, rgba(255,255,255,0.15) 0%, rgba(0,0,0,0.98) 100%)`;
+        tentarTocarSom();
+    });
+
+    // Se falhar o mousemove, o primeiro clique desbloqueia tudo
+    document.body.addEventListener('click', () => {
+        tentarTocarSom();
+    });
+
+    window.onload = tentarTocarSom;
+</script>
+</body>
+</html>

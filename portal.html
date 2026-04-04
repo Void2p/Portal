@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nosso Portal - 2p</title>
+    <link href="https://fonts.googleapis.com/css2?family=IM+Fell+English+SC&family=Cinzel&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="CssMel.css">
+</head>
+<body>
+
+    <audio id="musica" loop preload="auto">
+        <source src="Music/Massive Attack - Angel.mp3" type="audio/mpeg">
+    </audio>
+
+    <button id="playBtn">♱</button>
+
+    <section class="section1" id="vermelho" data-cor="#a11228">
+        <div id="secret-trigger" title="O silêncio guarda segredos...">♱</div>
+
+        <img src="img/verAra.png" class="moldura-canto topo-esq">
+        <img src="img/verAra.png" class="moldura-canto topo-dir">
+        <img src="img/verAra.png" class="moldura-canto baixo-esq">
+        <img src="img/verAra.png" class="moldura-canto baixo-dir">
+
+        <div class="frame left com-glow" onclick="ampliarMidia(this)">
+            <video width="100%" height="100%" autoplay loop muted playsinline style="object-fit: cover; border-radius: 15px;">
+                <source src="img/MelVideo.mp4" type="video/mp4">
+            </video>
+        </div>
+
+        <div class="frame right com-glow" onclick="ampliarMidia(this)">
+    <img src="img/Cego.png">
+    <span class="texto-secreto" style="display:none;">
+        "enquanto o mundo lá fora insiste em girar, aqui dentro, tudo permanece imóvel, suspenso no brilho do teu olhar."
+    </span>
+</div>
+
+        <div class="container">
+            <div class="nome-dinamico" id="nome">Chave de Sangue</div>
+            <h1>♱⛥</h1>
+            <p class="digitar">Dizem que o amor é uma vulnerabilidade, mas contigo, ele se tornou minha armadura mais pesada. Você é a nota constante no caos do meu silêncio, a frequência que faz meu sangue pulsar em ritmo de devoção. Entrar neste portal não é apenas abrir um site; é desvendar as camadas do que sinto e não sei dizer. Se o tempo for um carrasco, que ele nos encontre de mãos dadas, rindo da eternidade. Mel, você é a única luz que minhas sombras aceitam receber. Te amo além da carne, além do tempo, além de qualquer explicação.</p>
+            <p class="fade-text">🦇</p>
+            <a href="#azul" class="arrow" onclick="transicao(event, 'azul')">↓</a>
+        </div>
+    </section>
+
+    <section class="section2" id="azul" data-cor="#1e3a5f">
+        <img src="img/AranhaAzul.png" class="moldura-canto topo-esq">
+        <img src="img/AranhaAzul.png" class="moldura-canto topo-dir">
+        <img src="img/AranhaAzul.png" class="moldura-canto baixo-esq">
+        <img src="img/AranhaAzul.png" class="moldura-canto baixo-dir">
+
+        <div class="frame2 left2 com-glow" onclick="ampliarMidia(this)">
+            <img src="img/DarkNois.JPG">
+        </div>
+        <div class="frame2 right2 com-glow" onclick="ampliarMidia(this)">
+            <video width="100%" height="100%" autoplay loop muted playsinline style="object-fit: cover; border-radius: 5px;">
+                <source src="img/beijinhoss.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="container2">
+            <h1 style="color:#6fa3ff;">Conforto Melancólico e Doce</h1>
+            <p class="digitar">O mundo lá fora é frio, cinzento e barulhento, mas em você encontrei meu único lugar de repouso. É curioso como o peso da semana se dissolve quando seus olhos encontram os meus. Você é o meu 'final de semana' eterno, o sol que insiste em brilhar através da neblina da minha mente. Cada segundo longe é um ensaio de saudade; cada segundo perto é a prova de que o destino, às vezes, decide ser gentil. Estar com você e sua família é o sonho que eu esqueci de pedir, mas que a vida fez questão de me entregar.</p>
+            <a href="#rosa" class="arrow" style="color: #6fa3ff;" onclick="transicao(event, 'rosa')">↓</a>
+        </div>
+    </section>
+
+    <section class="section-rosa" id="rosa" data-cor="#ff69b4">
+        <img src="img/AraRos.png" class="moldura-canto topo-esq">
+        <img src="img/AraRos.png" class="moldura-canto topo-dir">
+        <img src="img/AraRos.png" class="moldura-canto baixo-esq">
+        <img src="img/AraRos.png" class="moldura-canto baixo-dir">
+
+        <div class="frame left horizontal com-glow" onclick="ampliarMidia(this)">
+            <img src="img/EuMel.jpeg">
+        </div>
+        <div class="frame right horizontal com-glow" onclick="ampliarMidia(this)">
+            <img src="img/NoisMel.jpeg">
+        </div>
+
+        <div class="container">
+            <div class="nome-dinamico">Onde o Tempo Cessa</div>
+            <h1>♱⛥</h1>
+            <p>O Pequeno Príncipe</p>
+            <p class="digitar">"O mar de Ubatuba foi o meu primeiro batismo; ali, entre o salitre e o medo de quem aprende a flutuar, descobri que não precisava mais temer a correnteza, pois o nosso encontro foi o porto que eu desconhecia buscar. Foi na intimidade daquela casa, sob a proteção do silêncio e o acolhimento daqueles que te amam, que a minha própria essência se encontrou com a tua pela primeira vez."</p>
+            <a href="#cinza" class="arrow" onclick="transicao(event, 'cinza')">↓</a>
+        </div>
+    </section>
+
+    <section class="section3" id="cinza" data-cor="#777777">
+        <img src="img/AraCin.png" class="moldura-canto topo-esq">
+        <img src="img/AraCin.png" class="moldura-canto topo-dir">
+        <img src="img/AraCin.png" class="moldura-canto baixo-esq">
+        <img src="img/AraCin.png" class="moldura-canto baixo-dir">
+        <div class="chuva"></div>
+
+        <div class="frame3 left3 com-glow" onclick="ampliarMidia(this)">
+            <video width="100%" height="100%" autoplay loop muted playsinline style="object-fit: cover; border-radius: 20px;">
+                <source src="img/meleeu.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="frame3 right3 com-glow" onclick="ampliarMidia(this)">
+            <img src="img/NoisCinza.jpeg">
+        </div>
+        <div class="container3">
+            <h2 class="digitar">⛥Nosso tempo juntos♱</h2>
+            <p class="digitar">Mais tarde, em Campo Verde, a vida se vestiu de uma elegância quase espectral. Como as luzes de Natal que desafiam a escuridão absoluta, você iluminou os cantos mais sombrios da minha alma. Eu olhava para aqueles guarda-chuvas flutuantes, para o brilho dourado que tingia o gelo das ruas, e sentia o relógio em meu peito, enfim, cessar suas batidas. O tempo — esse rio impiedoso que costuma devorar tudo — simplesmente parou. Parou para que eu pudesse eternizar o som do teu riso e a dignidade de uma vida que só agora, ao teu lado, entendi o que significa florescer.</p>
+            <div id="contador"></div>
+        </div>
+    </section>
+
+    <div class="overlay" id="overlay" onclick="fecharMidia()">
+        <div class="overlay-content" id="overlayContent">
+            <p id="textoOverlay"></p>
+        </div>
+    </div>
+
+    <div class="transition-overlay" id="transitionOverlay"></div>
+
+    <script src="Mel.js"></script>
+</body>
+</html>
